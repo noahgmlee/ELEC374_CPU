@@ -1,5 +1,5 @@
 Restore Archived Project report for CPU
-Mon Mar 29 15:16:35 2021
+Tue Mar 30 18:18:45 2021
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -36,9 +36,9 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Mon Mar 29 15:16:35 2021 ;
+; Restore Archived Project Status ; Successful - Tue Mar 30 18:18:36 2021 ;
 ; Revision Name                   ; CPU                                   ;
-; Top-level Entity Name           ; CPU                                   ;
+; Top-level Entity Name           ; Datapath                              ;
 ; Family                          ; Cyclone III                           ;
 +---------------------------------+---------------------------------------+
 
@@ -50,59 +50,56 @@ Info: Successfully restored 'C:/Users/17ngml/Documents/CPUreal/CPU_tmp_archive.q
 Info: Generated report 'CPU.restore.rpt'
 
 
-+------------------------------+
-; Files Restored               ;
-+------------------------------+
-; File Name                    ;
-+------------------------------+
-; ALU.v                        ;
-; ALU_TB.v                     ;
-; ALU_imm_tb.v                 ;
-; AND_32.v                     ;
-; Adder_32.v                   ;
-; BusMux.v                     ;
-; BusMux_TB.v                  ;
-; CON_FF.v                     ;
-; CPU.qpf                      ;
-; CPU.qsf                      ;
-; C_SignExtended.v             ;
-; Datapath.v                   ;
-; Datapath_TB.v                ;
-; Division.v                   ;
-; In_Port.v                    ;
-; MDR_MUX.v                    ;
-; MDR_MUX_TB.v                 ;
-; Multiplier.v                 ;
-; NOT_32.v                     ;
-; Negate.v                     ;
-; OR_32.v                      ;
-; Out_Port.v                   ;
-; R0_Reg.v                     ;
-; Ram.v                        ;
-; Ram_inst.v                   ;
-; Register.v                   ;
-; RotateL.v                    ;
-; RotateR.v                    ;
-; Sel_Enc_Log.v                ;
-; ShiftL.v                     ;
-; ShiftR.v                     ;
-; Subtraction.v                ;
-; br_tb.v                      ;
-; control_unit.v               ;
-; inout_tb.v                   ;
-; jump_tb.v                    ;
-; ld_tb.v                      ;
-; ldi_tb.v                     ;
-; mf_tb.v                      ;
-; output_files/CPU.flow.rpt    ;
-; output_files/CPU.map.rpt     ;
-; output_files/CPU.map.smsg    ;
-; output_files/CPU.map.summary ;
-; ram.hex                      ;
-; st_tb.v                      ;
-; assignment_defaults.qdf      ;
-; assignment_defaults.qdf      ;
-+------------------------------+
++------------------------------------------------+
+; Files Restored                                 ;
++------------------------------------------------+
+; File Name                                      ;
++------------------------------------------------+
+; ALU.v                                          ;
+; ALU_TB.v                                       ;
+; ALU_imm_tb.v                                   ;
+; AND_32.v                                       ;
+; Adder_32.v                                     ;
+; BusMux.v                                       ;
+; BusMux_TB.v                                    ;
+; CON_FF.v                                       ;
+; CPU.qpf                                        ;
+; CPU.qsf                                        ;
+; C_SignExtended.v                               ;
+; Datapath.v                                     ;
+; Datapath_TB.v                                  ;
+; Division.v                                     ;
+; In_Port.v                                      ;
+; MDR_MUX.v                                      ;
+; MDR_MUX_TB.v                                   ;
+; Multiplier.v                                   ;
+; NOT_32.v                                       ;
+; Negate.v                                       ;
+; OR_32.v                                        ;
+; Out_Port.v                                     ;
+; R0_Reg.v                                       ;
+; Ram.v                                          ;
+; Ram_inst.v                                     ;
+; Register.v                                     ;
+; Register15.v                                   ;
+; RotateL.v                                      ;
+; RotateR.v                                      ;
+; Sel_Enc_Log.v                                  ;
+; ShiftL.v                                       ;
+; ShiftR.v                                       ;
+; Subtraction.v                                  ;
+; br_tb.v                                        ;
+; control_unit.v                                 ;
+; incremental_db/compiled_partitions/CPU.db_info ;
+; inout_tb.v                                     ;
+; jump_tb.v                                      ;
+; ld_tb.v                                        ;
+; ldi_tb.v                                       ;
+; mf_tb.v                                        ;
+; ram.hex                                        ;
+; st_tb.v                                        ;
+; assignment_defaults.qdf                        ;
++------------------------------------------------+
 
 
 +--------------------+
