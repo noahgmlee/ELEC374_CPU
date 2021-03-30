@@ -3,6 +3,17 @@ module Datapath (input PCout, Zlowout, Zhighout, MDRout, MARin, Zin, PCin, MDRin
 							  BAout, Cout, HIout, LOout, Out_Portin, InPortout,
 					  output [31:0] Busout, Zlow_out, Zhi_out, R1_out, R0_out);
 					  
+/*
+module control_unit (
+output reg 		Gra, Grb, Grc, Rin, Rout,
+					HIin, LOin, CONin, PCin, IRin, Yin, Zin, MARin, MDRin, OUTPort_in, Cout, BAout,
+					PCout, MDRout, Zhighout, Zlowout, HIout, LOout, InPortout, IncPC,
+					Read, Write, Clear, Run,
+input [31:0]	IR,
+input 			Clock, Reset, Stop, CON_FF);
+
+*/
+					  
 //wire [31:0] R0_out;
 //wire [31:0] R1_out;
 wire [31:0] R2_out;
@@ -68,8 +79,8 @@ Register PC (clk, clr, PCin, Busout, PC_out);
 Register Zlow (clk, clr, Zin, ALU_low, Zlow_out);
 Register Zhigh (clk, clr, Zin, ALU_high, Zhi_out);
 Register Y (clk, clr, Yin, Busout, Y_out);
-Register #(10) HI (clk, clr, HIin, Busout, HI_out);
-Register #(5) LO (clk, clr, LOin, Busout, LO_out);
+Register HI (clk, clr, HIin, Busout, HI_out);
+Register LO (clk, clr, LOin, Busout, LO_out);
 Register MAR (clk, clr, MARin, Busout, MAR_out);
 
 MDR_Mux MM (Read, Busout, Mdatain, MDMux_out);

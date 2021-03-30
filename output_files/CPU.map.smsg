@@ -1,0 +1,4 @@
+Warning (10268): Verilog HDL information at Sel_Enc_Log.v(17): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at Datapath_TB.v(56): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at ALU.v(9): object "ROR" differs only in case from object "RoR" in the same scope
+Info (10281): Verilog HDL Declaration information at ALU.v(10): object "ROL" differs only in case from object "RoL" in the same scope
