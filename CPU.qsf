@@ -18,7 +18,7 @@
 #
 # Quartus II 32-bit
 # Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-# Date created = 13:23:27  March 29, 2021
+# Date created = 15:44:14  April 02, 2021
 #
 # -------------------------------------------------------------------------- #
 #
@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
 set_global_assignment -name TOP_LEVEL_ENTITY Datapath
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:23:27  MARCH 29, 2021"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:44:14  APRIL 02, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
@@ -57,10 +57,10 @@ set_global_assignment -name VERILOG_FILE ShiftL.v
 set_global_assignment -name VERILOG_FILE Sel_Enc_Log.v
 set_global_assignment -name VERILOG_FILE RotateR.v
 set_global_assignment -name VERILOG_FILE RotateL.v
+set_global_assignment -name VERILOG_FILE Register15.v
 set_global_assignment -name VERILOG_FILE Register.v
 set_global_assignment -name VERILOG_FILE Ram_inst.v
 set_global_assignment -name VERILOG_FILE Ram.v
-set_global_assignment -name VERILOG_FILE R0_Reg.v
 set_global_assignment -name VERILOG_FILE Out_Port.v
 set_global_assignment -name VERILOG_FILE OR_32.v
 set_global_assignment -name VERILOG_FILE NOT_32.v
@@ -77,6 +77,7 @@ set_global_assignment -name VERILOG_FILE In_Port.v
 set_global_assignment -name VERILOG_FILE Division.v
 set_global_assignment -name VERILOG_FILE Datapath_TB.v
 set_global_assignment -name VERILOG_FILE Datapath.v
+set_global_assignment -name VERILOG_FILE control_unit.v
 set_global_assignment -name VERILOG_FILE CON_FF.v
 set_global_assignment -name VERILOG_FILE C_SignExtended.v
 set_global_assignment -name VERILOG_FILE BusMux_TB.v
@@ -89,9 +90,17 @@ set_global_assignment -name VERILOG_FILE ALU.v
 set_global_assignment -name VERILOG_FILE Adder_32.v
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VERILOG_FILE control_unit.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE Register15.v
+set_global_assignment -name VERILOG_FILE control_unit_tb.v
+set_global_assignment -name EDA_TIME_SCALE "1 ns" -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH control_unit_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME control_unit_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id control_unit_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "20000 ns" -section_id control_unit_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME control_unit_tb -section_id control_unit_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE control_unit_tb.v -section_id control_unit_tb
+set_global_assignment -name VERILOG_FILE R0_Mux.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

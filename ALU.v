@@ -1,6 +1,7 @@
 module ALU (input [31:0] A, B, input [4:0] ALU_ctl, input IncPC, output [31:0] Zhigh, Zlow);
 
 parameter Load = 5'b00000,
+			 Load_imm = 5'b00001,
 			 Store = 5'b00010,
 			 Addition = 5'b00011, 
 			 Subtraction = 5'b00100,
@@ -45,7 +46,7 @@ NOT_32 Notter (A, Not_out);
 	
 always @ (*) begin
 		case (ALU_ctl)
-			Addition, Add_imm, Load, Store: begin
+			Addition, Add_imm, Load, Load_imm, Store: begin
 				Zltemp <= Adder_out;
 				Zhtemp <= {31'b0, Adder_cout};
 			end

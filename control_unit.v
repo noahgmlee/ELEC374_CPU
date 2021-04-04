@@ -175,11 +175,9 @@ always @(Present_state, Stop) begin
 			Zhighout <= 1; HIin <= 1;
 			#25 Zhighout <= 0; HIin <= 0;
 		end
-		
-	
 		ld3	: begin
 			Grb <= 1; BAout <= 1; Yin <= 1;
-			#25 Grb <= 0; BAout <= 0; Yin <= 0;
+			#35 Grb <= 0; BAout <= 0; Yin <= 0;
 		end
 		ld4	: begin
 			Zin <= 1; Cout <= 1;
@@ -199,7 +197,7 @@ always @(Present_state, Stop) begin
 		end
 		ldimm3	: begin
 			Grb <= 1; BAout <= 1; Yin <= 1;
-			#25 Grb <= 0; BAout <= 0; Yin <= 0;
+			#35 Grb <= 0; BAout <= 0; Yin <= 0;
 		end
 		ldimm4	: begin
 			Zin <= 1; Cout <= 1;
@@ -210,8 +208,8 @@ always @(Present_state, Stop) begin
 			#25 Gra <= 0; Rin <= 0; Zlowout <= 0;
 		end
 		st3	: begin
-			Grb <= 1; BAout <= 1; Yin <= 1;
-			#25 Grb <= 0; BAout <= 0; Yin <= 0;
+			BAout <= 1; Yin <= 1; Grb <= 1;
+			#35 Grb <= 0; BAout <= 0; Yin <= 0;
 		end
 		st4	: begin
 			Zin <= 1; Cout <= 1;
@@ -223,7 +221,7 @@ always @(Present_state, Stop) begin
 		end
 		st6	: begin
 			Gra <= 1; BAout <= 1; MDRin <= 1;
-			#25 BAout <= 0; Gra <= 0; MDRin <= 0;
+			#35 BAout <= 0; Gra <= 0; MDRin <= 0;
 		end
 		st7	: begin
 			Write <= 1;
@@ -234,7 +232,8 @@ always @(Present_state, Stop) begin
 			#25 Gra <= 0; Rout <= 0; CONin <= 0;
 		end
 		br4	: begin
-			PCout <= 1; Yin <= 1; #25 PCout <= 0; Yin <= 0;
+			PCout <= 1; Yin <= 1; 
+			#25 PCout <= 0; Yin <= 0;
 		end
 		br5: begin
 			Cout <= 1; Zin <= 1;
@@ -261,7 +260,7 @@ always @(Present_state, Stop) begin
 		end
 		mfhi3	: begin
 			HIout <= 1; Gra <= 1; Rin <= 1;
-			#25 Gra <= 0; Rin <= 0; LOout <= 0;
+			#25 Gra <= 0; Rin <= 0; HIout <= 0;
 		end
 		mflo3	: begin
 			LOout <= 1; Gra <= 1; Rin <= 1;

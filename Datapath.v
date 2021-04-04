@@ -1,18 +1,11 @@
-module Datapath (input /*PCout, Zlowout, Zhighout, MDRout, MARin, Zin, PCin, MDRin, IRin, Yin, 
-							  LOin, HIin, IncPC, Read, Write,*/ clk, CU_clk, Reset, Stop, /*CONin, Gra, Grb, Grc, Rin, Rout, R15in, 
-							  BAout, Cout, HIout, LOout, Out_Portin, InPortout,*/
+module Datapath (input clk, CU_clk, Reset, Stop,
 					  output [31:0] Busout);
-				  
-
-control_unit CU (Gra, Grb, Grc, Rin, Rout, R15in, HIin, LOin, CONin, PCin, IRin, Yin, Zin, MARin, MDRin, 
-					  Out_Portin, Cout, BAout, PCout, MDRout, Zhighout, Zlowout, HIout, LOout, InPortout, 
-					  IncPC, Read, Write, Clear, Run, IR_out, CU_clk, Reset, Stop, CON_out);
 
 wire Gra, Grb, Grc, Rin, Rout, R15in, HIin, LOin, CONin, PCin, IRin, Yin, Zin, MARin, MDRin, OutPortin, 
 	  Cout, BAout, PCout, MDRout, Zhighout, Zlowout, HIout, LOout, InPortout, IncPC, Read, Write, Clear,
 	  CON_out, Run;
 					  
-wire [31:0] R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out, 
+wire [31:0] R0_out1, R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out, 
 				R8_out, R9_out, R10_out, R11_out, R12_out, R13_out, R14_out, R15_out;
 
 wire [31:0] PC_out, IR_out, Y_out, Z_out, MAR_out, HI_out, LO_out, MDR_out, InPort_out, 
@@ -23,7 +16,8 @@ wire [15:0] GPReg_in, GPReg_out;
 
 C_SignExtended CS (IR_out, C_out);
 
-R0_Reg R0 (clk, Clear, GPReg_in[0], BAout, Busout, R0_out);
+R0_Mux	R0mux (BAout, 32'b0, R0_out1, R0_out);
+Register R0 (clk, Clear, GPReg_in[0], Busout, R0_out1);
 Register R1 (clk, Clear, GPReg_in[1], Busout, R1_out);
 Register R2 (clk, Clear, GPReg_in[2], Busout, R2_out);
 Register R3 (clk, Clear, GPReg_in[3], Busout, R3_out);
@@ -80,5 +74,9 @@ Ram	Ram_inst (
 
 Out_Port OP (clk, Clear, Out_Portin, Busout, OutPort_out);
 In_Port #(10) IP (clk, Clear, 1'b0, Busout, InPort_out);
+
+control_unit CU (Gra, Grb, Grc, Rin, Rout, R15in, HIin, LOin, CONin, PCin, IRin, Yin, Zin, MARin, MDRin, 
+					  Out_Portin, Cout, BAout, PCout, MDRout, Zhighout, Zlowout, HIout, LOout, InPortout, 
+					  IncPC, Read, Write, Clear, Run, IR_out, CU_clk, Reset, Stop, CON_out);
 
 endmodule		  

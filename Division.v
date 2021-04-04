@@ -1,4 +1,4 @@
-module Division (input [31:0] M, Q, output [31:0] result, remainder);
+module Division (input [31:0] Q, M, output [31:0] result, remainder);
 
 	reg [64:0] AQ;
 	reg [32:0] Mtemp, Rem;
